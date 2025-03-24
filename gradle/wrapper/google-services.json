@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "885496546729",
+    "firebase_url": "https://heath-app-f6fbb-default-rtdb.firebaseio.com",
+    "project_id": "heath-app-f6fbb",
+    "storage_bucket": "heath-app-f6fbb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885496546729:android:4e61821ec7cd0d6aa830b8",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp2GQ4I-o9oasTFIjD6hhWgxZriB1PYAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
