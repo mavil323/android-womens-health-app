@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 
 class SignUpFragment : Fragment() {
@@ -16,41 +17,44 @@ class SignUpFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Show Dialog Immediately on Fragment Load
         showSignUpDialog()
-
-        // Return an empty view since no main layout is needed
-        return View(requireContext())
+        return View(requireContext()) // No layout needed here
     }
 
-    // Pop-up Dialog Logic
+
     private fun showSignUpDialog() {
         val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_signup, null)
+        val dialog = AlertDialog.Builder(requireContext())
+            .setView(dialogView)
+            .setCancelable(false)
+            .create()
+
+
+
+        dialog.show()
 
         val btnSignUp = dialogView.findViewById<Button>(R.id.btnSignUp)
         val btnLogin = dialogView.findViewById<Button>(R.id.btnLogin)
         val btnSkip = dialogView.findViewById<Button>(R.id.btnSkip)
 
-        val builder = AlertDialog.Builder(requireContext())
-            .setView(dialogView)
-            .setCancelable(false)
 
-        val dialog = builder.create()
-        dialog.show()
+                btnSignUp.setOnClickListener {
+                    findNavController().navigate(R.id.action_signUpFragment_to_signUpDetailsFragment2)
+                    dialog.dismiss()
+                }
 
-        // Button Click Logic
-        btnSignUp.setOnClickListener {
-            // Add your Sign Up logic here
-            dialog.dismiss()
+                btnLogin.setOnClickListener {
+                    // Add login logic or navigate to login screen
+                    dialog.dismiss()
+                }
+
+                btnSkip.setOnClickListener {
+                    // Handle skip (e.g. go to home or main app screen)
+                    requireActivity().finish()
+                }
+            }
         }
 
-        btnLogin.setOnClickListener {
-            // Add your Log In logic here
-            dialog.dismiss()
-        }
 
-        btnSkip.setOnClickListener {
-            dialog.dismiss()  // Skip closes the dialog
-        }
-    }
-}
+
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/signUpFragment">
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.myapplication.ui.signup.SignUpFragment"
+        android:label="Welcome"
+        tools:layout="@layout/dialog_signup">
+
+        <action
+            android:id="@+id/action_signUpFragment_to_signUpDetailsFragment2"
+            app:destination="@id/signUpDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpDetailsFragment"
+        android:name="com.example.myapplication.ui.signup.SignUpDetailsFragment"
+        android:label="Sign Up Details"
+        tools:layout="@layout/sign_up_details" />
+</navigation>
+
+

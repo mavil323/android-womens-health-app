@@ -1,44 +1,58 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/rounded_corner_bg"
+    >
+
+
+    <androidx.fragment.app.FragmentContainerView
+    android:id="@+id/nav_host_fragment"
+    android:name="androidx.navigation.fragment.NavHostFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rounded_corner_bg"
-    android:orientation="vertical"
-    android:padding="24dp">
+    app:navGraph="@navigation/nav_graph" />
 
-    <TextView
-        android:id="@+id/dialogTitle"
-        android:layout_width="335dp"
-        android:layout_height="265dp"
-        android:layout_marginBottom="12dp"
-        android:gravity="center"
-        android:text="Welcome to Your Period Tracker!"
-        android:textColor="#6200EE"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnSignUp"
+    <!-- Welcome Screen (Initially Visible) -->
+    <LinearLayout
+        android:id="@+id/welcomeScreen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#D8BFD8"
-        android:text="Sign Up"
-        android:textColor="@android:color/white" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="#836FFF"
-        android:text="Log In"
-        android:textColor="@android:color/white" />
+        <TextView
+            android:id="@+id/dialogTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to Women's Health App"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="12dp"/>
 
-    <Button
-        android:id="@+id/btnSkip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="#E6E6FA"
-        android:text="Skip"
-        android:textColor="#6200EE" />
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"/>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log In"
+            android:layout_marginTop="8dp"/>
+
+        <Button
+            android:id="@+id/btnSkip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Skip"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+
+
 </LinearLayout>
