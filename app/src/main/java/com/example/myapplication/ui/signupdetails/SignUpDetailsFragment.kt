@@ -29,10 +29,11 @@ class SignUpDetailsFragment : Fragment() {
         val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.sign_up_details, null)
         val dialog = AlertDialog.Builder(requireContext())
             .setView(dialogView)
-            .setCancelable(false) // You can change this if you want the dialog to be dismissible
+            .setCancelable(true) //
             .create()
 
         dialog.show()
+
 
         val usernameInput = dialogView.findViewById<EditText>(R.id.usernameInput)
         val emailInput = dialogView.findViewById<EditText>(R.id.emailInput)

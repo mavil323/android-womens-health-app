@@ -43,7 +43,7 @@ class SignUpFragment : Fragment() {
                     dialog.dismiss()
 
                     findNavController().navigate(R.id.action_signUpFragment_to_signUpDetailsFragment2)
-                    dialogView.visibility = View.GONE
+
 
 
                 }
@@ -51,6 +51,9 @@ class SignUpFragment : Fragment() {
                 btnLogin.setOnClickListener {
                     // Add login logic or navigate to login screen
                     dialog.dismiss()
+
+                    findNavController().navigate(R.id.action_signUpFragment_to_loginFragment2)
+
                 }
 
                 btnSkip.setOnClickListener {

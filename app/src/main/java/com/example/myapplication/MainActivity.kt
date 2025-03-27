@@ -63,21 +63,9 @@ class MainActivity : AppCompatActivity() {
             .setCancelable(false)  // Prevents users from bypassing without selecting an option
 
         val dialog = builder.create()
-        dialog.show()
 
-        // Step 4: Handle Button Actions
-      /*  btnSignUp.setOnClickListener {
-            startActivity(Intent(this, SignUpActivity::class.java))
-            dialog.dismiss()
-        }
 
-        btnLogin.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-            dialog.dismiss()
-        }
-*/
-        btnSkip.setOnClickListener {
-            dialog.dismiss() // Close the pop-up without navigation
-        }
+
+
     }
 }
