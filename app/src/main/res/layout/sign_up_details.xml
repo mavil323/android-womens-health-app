@@ -6,10 +6,7 @@
     android:padding="24dp"
     android:background="@drawable/rounded_corner_bg"
 
-
-
     >
-
 
     <EditText
         android:id="@+id/usernameInput"

@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.signup
+package com.example.myapplication.ui.signupdetails
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -10,6 +10,7 @@
         android:name="com.example.myapplication.ui.signup.SignUpFragment"
         android:label="Welcome"
         tools:layout="@layout/dialog_signup">
+    </fragment>
 
         <action
             android:id="@+id/action_signUpFragment_to_signUpDetailsFragment2"
@@ -18,11 +19,11 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
-    </fragment>
+
 
     <fragment
         android:id="@+id/signUpDetailsFragment"
-        android:name="com.example.myapplication.ui.signup.SignUpDetailsFragment"
+        android:name="com.example.myapplication.ui.signupdetails.SignUpDetailsFragment"
         android:label="Sign Up Details"
         tools:layout="@layout/sign_up_details" />
 </navigation>

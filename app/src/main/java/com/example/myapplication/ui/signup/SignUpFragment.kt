@@ -38,9 +38,14 @@ class SignUpFragment : Fragment() {
         val btnSkip = dialogView.findViewById<Button>(R.id.btnSkip)
 
 
+
                 btnSignUp.setOnClickListener {
-                    findNavController().navigate(R.id.action_signUpFragment_to_signUpDetailsFragment2)
                     dialog.dismiss()
+
+                    findNavController().navigate(R.id.action_signUpFragment_to_signUpDetailsFragment2)
+                    dialogView.visibility = View.GONE
+
+
                 }
 
                 btnLogin.setOnClickListener {
@@ -53,7 +58,11 @@ class SignUpFragment : Fragment() {
                     requireActivity().finish()
                 }
             }
-        }
+
+
+
+
+}
 
 
 
