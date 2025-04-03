@@ -58,7 +58,7 @@ class SignUpFragment : Fragment() {
 
                 btnSkip.setOnClickListener {
                     // Handle skip (e.g. go to home or main app screen)
-                    requireActivity().finish()
+                    dialog.dismiss()
                 }
             }
 

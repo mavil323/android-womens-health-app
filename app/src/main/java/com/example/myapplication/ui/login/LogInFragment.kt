@@ -3,6 +3,7 @@ package com.example.myapplication.ui.login
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.example.myapplication.R
 import com.google.firebase.auth.FirebaseAuth
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.MainActivity
 
 class LogInFragment : Fragment() {
 
@@ -21,6 +23,7 @@ class LogInFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         // Initialize FirebaseAuth
         auth = FirebaseAuth.getInstance()
@@ -30,6 +33,15 @@ class LogInFragment : Fragment() {
 
         // Return a placeholder view (this is required for a Fragment)
         return View(requireContext()) // No layout needed here
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                (activity as? MainActivity)?.openDrawer()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun showLogInDialog() {
@@ -64,22 +76,24 @@ class LogInFragment : Fragment() {
     }
 
     private fun logInUser(email: String, password: String, dialog: android.app.AlertDialog) {
-        // Firebase login process
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    // Login successful, dismiss the dialog
                     Toast.makeText(requireContext(), "Login successful", Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
+
+                    // Set custom drawer icon
                     (activity as? AppCompatActivity)?.supportActionBar?.apply {
-                        setDisplayHomeAsUpEnabled(true) // Optionally add a back button
-                        setHomeAsUpIndicator(R.drawable.ic_action_name) // Add your icon here
+                        setDisplayHomeAsUpEnabled(true)
+                        setHomeAsUpIndicator(R.drawable.ic_action_name) // your custom icon
                     }
-                    // You can navigate to the next screen or fragment here after successful login
+
+                    setHasOptionsMenu(true) // allow fragment to handle toolbar icon clicks
+
                 } else {
-                    // Login failed
                     Toast.makeText(requireContext(), "Login failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
     }
+
 }
