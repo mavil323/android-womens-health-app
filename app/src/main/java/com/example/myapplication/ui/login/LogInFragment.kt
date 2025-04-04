@@ -23,17 +23,17 @@ class LogInFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-
     ): View? {
-        // Initialize FirebaseAuth
         auth = FirebaseAuth.getInstance()
 
         // Show the Log In dialog
-        showLogInDialog()
+       showLogInDialog()
 
-        // Return a placeholder view (this is required for a Fragment)
-        return View(requireContext()) // No layout needed here
+        // Return a simple layout (make sure you have fragment_login.xml)
+        return inflater.inflate(R.layout.fragment_login, container, false)
     }
+
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
@@ -49,7 +49,7 @@ class LogInFragment : Fragment() {
             LayoutInflater.from(requireContext()).inflate(R.layout.login_info, null)
         val dialog = android.app.AlertDialog.Builder(requireContext())
             .setView(dialogView)
-            .setCancelable(false) // You can change this if you want the dialog to be dismissible
+            .setCancelable(false)
             .create()
 
         dialog.show()
@@ -63,13 +63,8 @@ class LogInFragment : Fragment() {
             val password = passwordInput.text.toString().trim()
 
             if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-                Toast.makeText(
-                    requireContext(),
-                    "Please fill in all fields",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show()
             } else {
-                // Proceed to log the user in
                 logInUser(email, password, dialog)
             }
         }
@@ -82,18 +77,20 @@ class LogInFragment : Fragment() {
                     Toast.makeText(requireContext(), "Login successful", Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
 
-                    // Set custom drawer icon
+                    // Show drawer icon in toolbar
                     (activity as? AppCompatActivity)?.supportActionBar?.apply {
                         setDisplayHomeAsUpEnabled(true)
                         setHomeAsUpIndicator(R.drawable.ic_action_name) // your custom icon
                     }
 
-                    setHasOptionsMenu(true) // allow fragment to handle toolbar icon clicks
+                    // ✅ Tell MainActivity to show logged-in drawer
+                    (activity as? MainActivity)?.updateDrawerForUserState(true)
+
+                    setHasOptionsMenu(true)
 
                 } else {
                     Toast.makeText(requireContext(), "Login failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
     }
-
 }
