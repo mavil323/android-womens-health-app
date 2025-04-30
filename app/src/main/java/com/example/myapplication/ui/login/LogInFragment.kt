@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.example.myapplication.R
 import com.google.firebase.auth.FirebaseAuth
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import com.example.myapplication.MainActivity
 
 class LogInFragment : Fragment() {
@@ -85,6 +86,9 @@ class LogInFragment : Fragment() {
 
                     // ✅ Tell MainActivity to show logged-in drawer
                     (activity as? MainActivity)?.updateDrawerForUserState(true)
+
+
+
 
                     setHasOptionsMenu(true)
 

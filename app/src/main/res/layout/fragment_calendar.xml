@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/calendarFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    android:gravity="center">
+
+    <!-- Month Header -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingBottom="12dp"
+        android:layout_marginBottom="8dp">
+
+        <Button
+            android:id="@+id/btnPrevMonth"
+            android:layout_width="42dp"
+            android:layout_height="wrap_content"
+            android:text="‹"
+            android:textColor="#5B5A5A"
+            android:background="@android:color/transparent"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/textMonthYear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Month Year"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+        android:id="@+id/btnNextMonth"
+        android:layout_width="42dp"
+        android:layout_height="wrap_content"
+        android:text="›"
+        android:textColor="#5B5A5A" android:background="@android:color/transparent"
+        android:textSize="24sp"/>
+    </LinearLayout>
+
+    <!-- Calendar Grid -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/calendarRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:overScrollMode="never" />
+</LinearLayout>
