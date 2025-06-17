@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@android:color/white"
-    android:gravity="center">
+    android:padding="10dp"
+    android:background="#4B8122"
+    android:gravity="center_vertical">
 
     <!-- Month Header -->
     <LinearLayout
